@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <div id='logo'>
+    <h1>/&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x</h1>
+    <h2>a tool for exploring regular expressions in vi</h2>
+  </div>
+  <div id='anim_area'>
+    <div id='inputs'>
+      <div class='label'>Your test string:</div>
+      <div class='textarea' contenteditable id='string'>This is  only  &nbsp; a &nbsp; &nbsp; test.</div>
+      <div class='label'>Your regular expression:</div>
+      <div id='re_area'>
+        <div class='slash'>/</div>
+        <div class='textarea' contenteditable id='re'>.  ?</div>
+        <div class='slash'>/</div>
+        <div class='textarea' contenteditable id='flags'></div>
+      </div>
+      <div class='label'>Results:</div>
+      <div class='textarea' id='results'><i>no matches</i></div>
+      (Note that right now it is as if the /g flag is always specified, and whitespace is handled wrong.)
+    </div>
+    <div id='go'>
+      Process It!
+    </div>
+  </div>
+  <div id='ref'></div>
+</html>

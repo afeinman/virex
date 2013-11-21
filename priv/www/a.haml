@@ -1,0 +1,29 @@
+!!!
+%html
+  #logo
+    %h1 /&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x
+    %h2 a tool for exploring regular expressions in vi
+
+  #anim_area
+    #inputs
+      .label Your test string:
+      .textarea#string(contenteditable=true)<
+        This is  only  &nbsp; a &nbsp; &nbsp; test.
+    
+      .label Your regular expression:
+      #re_area
+        .slash /
+        .textarea#re(contenteditable=true)< .  ?
+        .slash /
+        .textarea#flags(contenteditable=true)
+
+      .label Results:
+      .textarea#results<
+        <i>no matches</i>
+      (Note that right now it is as if the /g flag is always specified, and whitespace is handled wrong.)
+
+    #go
+      Process It!
+    
+
+  #ref
