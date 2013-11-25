@@ -1,3 +1,36 @@
+console.log "Hello world"
+
+updateRE = (e) ->
+  console.log "Got click"
+  e.preventDefault()
+
+  test_string = $('#test_string').val().replace(/\r?\n/g, "%0A")
+  regex = $('#regex').val()
+
+  if regex? and test_string?
+    # "Disable" inputs
+    $('#test_string').css('color', '#888')
+    $('#regex').css('color', '#888')
+    $('#flags').css('color', '#888')
+
+    $.ajax("http://virex.org/regex?text="+test_string+"&pattern="+regex)
+      .done (data) ->
+        $('#results').html(data)
+
+        # "Re-enable" inputs
+        $('#test_string').css('color', '#000')
+        $('#regex').css('color', '#000')
+        $('#flags').css('color', '#000')
+  else
+    $('#results').html('Please enter a non-blank string and regular expression, or this is rather boring.')
+
+$('#update_regex').click updateRE
+$('#update_regex').click -> console.log 'hi'
+
+
+
+### Alex's old code
+
 parseRE = ->
   re = $("#re").html()
   re = re.replace /&nbsp;/g, ' '
@@ -23,25 +56,7 @@ parseRE = ->
   catch e
     $("#results").html("There's something fishy in your regexp:<br/>"+e)
 
-update_re = ->
-  test_string = $('#string').val().replace(/\r?\n/g, "%0A")
-  regex = $("#re").val()
 
-  return unless regex? and test_string?
-  $('#match_result').css('background-color', '#EBEBEB');
-  $('#match_groups').css('background-color', '#EBEBEB');
+###
 
-  $.ajax("/regex?text="+test_string+"&pattern="+regex)
-    .done (data) ->
-      ('#results').html(data)
-      $('#match_result').css('background-color', 'white')
-      $('#match_groups').css('background-color', 'white')
-
-
-$("#go").click ->
-  console.log "click!"
-  $('#go').css('animation-name', 'godown')
-# update_re()
-#  setTimeout parseRE, 200
-
-#parseRE()
+console.log "done loading"

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='js/jquery-2.0.3.min.js' type='text/javascript'></script>
+    <script src='js/a.js' type='text/javascript'></script>
+    <link href='css/virex2.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class='main'>
+      <h1>a Vim Regular Expressions playground</h1>
+      <div class='col'>
+        <label for='test_string'>Your test string:</label>
+        <textarea data-behavior='submit-regex-query' id='test_string' maxlength='500' placeholder='Your test string'></textarea>
+      </div>
+      <div class='col'>
+        <label for='regex'>Your regular expression:</label>
+        <div class='line'>
+          <div class='slash'>/</div>
+          <input data-behavior='submit-regex-query' id='regex' maxlength='80' placeholder='Your regular expression' type='text'>
+          <div class='slash'>/g</div>
+        </div>
+      </div>
+      <div class='line'>
+        <button id='update_regex'>Update match results</button>
+      </div>
+      <div class='col'>
+        <label for='match_result'>Match result:</label>
+        <div class='match' id='match_result'></div>
+      </div>
+      <div class='col'>
+        <label for='match_groups'>Match groups:</label>
+        <div class='match' id='match_groups'></div>
+      </div>
+      <h2>Vim Regex Quick Reference (in default/magic mode)</h2>
+      <div class='line' id='tips'>
+        <ul>
+          <li>
+            <div class='term'>.</div>
+            <div class='def'>Any single character within a line</div>
+          </li>
+          <li>
+            <div class='term'>\.</div>
+            <div class='def'>Literal '.'</div>
+          </li>
+          <li>
+            <div class='term'>[abc]</div>
+            <div class='def'>A single character: a, b, or c</div>
+          </li>
+          <li>
+            <div class='term'>[^abc]</div>
+            <div class='def'>Any character except: a, b, or c</div>
+          </li>
+          <li>
+            <div class='term'>^</div>
+            <div class='def'>If first, matches start-of-line; otherwise, literal '^'</div>
+          </li>
+          <li>
+            <div class='term'>\_^</div>
+            <div class='def'>Start of line</div>
+          </li>
+          <li>
+            <div class='term'>$</div>
+            <div class='def'>If last, matches start-of-line; otherwise, literal '$'</div>
+          </li>
+          <li>
+            <div class='term'>\_$</div>
+            <div class='def'>End of line</div>
+          </li>
+          <li>
+            <div class='term'>\_.</div>
+            <div class='def'>Any character, including end-of-line</div>
+          </li>
+          <li>
+            <div class='term'>\&lt;</div>
+            <div class='def'>left word boundary</div>
+          </li>
+          <li>
+            <div class='term'>\&gt;</div>
+            <div class='def'>right word boundary</div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div class='term'>\a or [:alpha:]</div>
+            <div class='def'>alphabetic character</div>
+          </li>
+          <li>
+            <div class='term'>[:alnum:]</div>
+            <div class='def'>Any single letter or digit</div>
+          </li>
+          <li>
+            <div class='term'>\d or [:digit:]</div>
+            <div class='def'>digit</div>
+          </li>
+          <li>
+            <div class='term'>\D</div>
+            <div class='def'>non-digit</div>
+          </li>
+          <li>
+            <div class='term'>\l</div>
+            <div class='def'>lower case character</div>
+          </li>
+          <li>
+            <div class='term'>\s or [:space:]</div>
+            <div class='def'>whitespace character</div>
+          </li>
+          <li>
+            <div class='term'>\S</div>
+            <div class='def'>non-whitespace character</div>
+          </li>
+          <li>
+            <div class='term'>\w</div>
+            <div class='def'>word character</div>
+          </li>
+          <li>
+            <div class='term'>\W</div>
+            <div class='def'>non-word character</div>
+          </li>
+          <li>
+            <div class='term'>\u</div>
+            <div class='def'>upper case character</div>
+          </li>
+          <li>
+            <div class='term'>[:punct:]</div>
+            <div class='def'>Any single punctuation character</div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <div class='term'>a\|b</div>
+            <div class='def'>a or b</div>
+          </li>
+          <li>
+            <div class='term'>a\?</div>
+            <div class='def'>Zero or one of a</div>
+          </li>
+          <li>
+            <div class='term'>a*</div>
+            <div class='def'>Zero or more of a</div>
+          </li>
+          <li>
+            <div class='term'>a\+</div>
+            <div class='def'>One or more of a</div>
+          </li>
+          <li>
+            <div class='term'>a\{3}</div>
+            <div class='def'>Exactly 3 of a</div>
+          </li>
+          <li>
+            <div class='term'>a\{3,}</div>
+            <div class='def'>3 or more of a</div>
+          </li>
+          <li>
+            <div class='term'>a\{,6}</div>
+            <div class='def'>Up to 6 of a</div>
+          </li>
+          <li>
+            <div class='term'>a\{3,6}</div>
+            <div class='def'>Between 3 and 6 of a</div>
+          </li>
+          <li>
+            <div class='term'>r\%[ead]</div>
+            <div class='def'>Longest available of: r, re, rea, read</div>
+          </li>
+          <li>
+            <div class='term'>\( ... \)</div>
+            <div class='def'>Capture everything enclosed into \1, \2, etc.</div>
+          </li>
+          <li>
+            <div class='term'>\(.\)a\1</div>
+            <div class='def'>'yay', 'dad', 'xax', etc.</div>
+          </li>
+        </ul>
+      </div>
+      <div class='line' id='footer'>
+        <p>
+          For detailed documentation on vim's regex, check out <a href="http://vimregex.com/">vimregex.com</a>, the <a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html">vim docs</a>, and the <a href="http://vim.wikia.com/wiki/Special:Search?search=regular+expressions&fulltext=Search&ns0=1&ns14=1">vim tips wiki</a>.
+        </p>
+        <p>
+          Made by <a href="http://www.daniellesucher.com/">Danielle Sucher</a> (<a href="https://twitter.com/daniellesucher">@DanielleSucher</a>), inspired by <a href="http://rubular.com/">Rubular</a>. Source code <a href="https://github.com/DanielleSucher/virex">available here</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

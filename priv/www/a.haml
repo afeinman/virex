@@ -1,29 +1,34 @@
 !!!
 %html
-  #logo
-    %h1 /&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x
-    %h2 a tool for exploring regular expressions in vi
+  %head
+    %script{:type => 'text/javascript', :src => 'js/jquery-2.0.3.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/a.js'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/a.css'}
+  %body
+    #logo
+      %h1 /&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x
+      %h2 a tool for exploring regular expressions in vi
 
-  #anim_area
-    #inputs
-      .label Your test string:
-      .textarea#string(contenteditable=true)<
-        This is  only  &nbsp; a &nbsp; &nbsp; test.
-    
-      .label Your regular expression:
-      #re_area
-        .slash /
-        .textarea#re(contenteditable=true)< .  ?
-        .slash /
-        .textarea#flags(contenteditable=true)
+    #anim_area
+      #inputs
+        .label Your test string:
+        .textarea#test_string(contenteditable=true)<
+          This is  only  &nbsp; a &nbsp; &nbsp; test.
+      
+        .label Your regular expression:
+        #re_area
+          .slash /
+          .textarea#regex(contenteditable=true)< .  ?
+          .slash /
+          .textarea#flags(contenteditable=true)
 
-      .label Results:
-      .textarea#results<
-        <i>no matches</i>
-      (Note that right now it is as if the /g flag is always specified, and whitespace is handled wrong.)
+        .label Results:
+        .textarea#results<
+          <i>no matches</i>
+        (Note that right now it is as if the /g flag is always specified, and whitespace is handled wrong.)
 
-    #go
-      Process It!
-    
+      #update_regex
+        Process It!
+      
 
-  #ref
+    #ref

@@ -1,0 +1,150 @@
+!!!
+%html
+  %head
+    %script{:type => 'text/javascript', :src => 'js/jquery-2.0.3.min.js'}
+    %script{:type => 'text/javascript', :src => 'js/a.js'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => 'css/virex2.css'}
+
+  %body
+    .main
+      %h1 a Vim Regular Expressions playground
+
+      .col
+        %label(for="test_string") Your test string:
+        %textarea#test_string(placeholder="Your test string" data-behavior="submit-regex-query" maxlength="500")
+
+      .col
+        %label(for="regex") Your regular expression:
+        .line
+          .slash /
+          %input#regex(type="text" placeholder="Your regular expression" data-behavior="submit-regex-query" maxlength="80")
+          .slash /g
+
+      .line
+        %button#update_regex Update match results
+
+      .col
+        %label(for="match_result") Match result:
+        .match#match_result
+
+      .col
+        %label(for="match_groups") Match groups:
+        .match#match_groups
+
+      %h2 Vim Regex Quick Reference (in default/magic mode)
+
+      .line#tips 
+        %ul
+          %li
+            .term . 
+            .def Any single character within a line
+          %li
+            .term \. 
+            .def Literal '.' 
+          %li
+            .term [abc] 
+            .def A single character: a, b, or c
+          %li
+            .term [^abc] 
+            .def Any character except: a, b, or c
+          %li
+            .term ^
+            .def If first, matches start-of-line; otherwise, literal '^'
+          %li
+            .term \_^ 
+            .def Start of line
+          %li
+            .term $
+            .def If last, matches start-of-line; otherwise, literal '$'
+          %li
+            .term \_$ 
+            .def End of line
+          %li
+            .term \_.
+            .def Any character, including end-of-line
+          %li
+            .term \&lt; 
+            .def left word boundary
+          %li
+            .term \&gt; 
+            .def right word boundary
+
+        %ul
+          %li
+            .term \a or [:alpha:]
+            .def alphabetic character
+          %li
+            .term [:alnum:] 
+            .def Any single letter or digit
+          %li
+            .term \d or [:digit:]
+            .def digit
+          %li
+            .term \D 
+            .def non-digit
+          %li
+            .term \l 
+            .def lower case character
+          %li
+            .term \s or [:space:]
+            .def whitespace character
+          %li
+            .term \S 
+            .def non-whitespace character
+          %li
+            .term \w 
+            .def word character
+          %li
+            .term \W 
+            .def non-word character
+          %li
+            .term \u 
+            .def upper case character
+          %li
+            .term [:punct:] 
+            .def Any single punctuation character
+
+        %ul
+          %li
+            .term a\|b 
+            .def a or b
+          %li
+            .term a\? 
+            .def Zero or one of a
+          %li
+            .term a* 
+            .def Zero or more of a
+          %li
+            .term a\+ 
+            .def One or more of a
+          %li
+            .term a\{3} 
+            .def Exactly 3 of a
+          %li
+            .term a\{3,} 
+            .def 3 or more of a
+          %li
+            .term a\{,6} 
+            .def Up to 6 of a
+          %li
+            .term a\{3,6} 
+            .def Between 3 and 6 of a
+          %li
+            .term r\%[ead] 
+            .def Longest available of: r, re, rea, read
+          %li
+            .term \( ... \) 
+            .def Capture everything enclosed into \1, \2, etc.
+          %li
+            .term \(.\)a\1 
+            .def 'yay', 'dad', 'xax', etc.
+
+
+
+
+
+      .line#footer
+        %p
+          For detailed documentation on vim's regex, check out <a href="http://vimregex.com/">vimregex.com</a>, the <a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html">vim docs</a>, and the <a href="http://vim.wikia.com/wiki/Special:Search?search=regular+expressions&fulltext=Search&ns0=1&ns14=1">vim tips wiki</a>.
+        %p
+          Made by <a href="http://www.daniellesucher.com/">Danielle Sucher</a> (<a href="https://twitter.com/daniellesucher">@DanielleSucher</a>), inspired by <a href="http://rubular.com/">Rubular</a>. Source code <a href="https://github.com/DanielleSucher/virex">available here</a>.

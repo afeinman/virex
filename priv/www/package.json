@@ -1,0 +1,13 @@
+{
+	"name": "virex",
+	"version": "0.2.0",
+	"devDependencies": {
+		"grunt":        "",
+		"grunt-contrib-haml":   "",
+		"grunt-contrib-sass":   "",
+		"grunt-contrib-coffee": "",
+		"haml": "",
+		"sass": "",
+		"coffee":       ""
+	}
+}

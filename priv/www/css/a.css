@@ -34,9 +34,10 @@ body {
     top: 12em;
     right: 1em; } }
 
-#go {
+#update_regex {
   display: inline-block;
   position: absolute;
+  user-select: none;
   top: 8em;
   right: 1em;
   width: 6em;
@@ -49,7 +50,7 @@ body {
   cursor: pointer;
   animation-duration: 900ms;
   animation-fill-mode: both; }
-  #go:hover {
+  #update_regex:hover {
     background: #eeeeee; }
 
 .label {
@@ -62,7 +63,7 @@ body {
   font-family: "Menlo", "Droid Sans Mono", "Courier", monospace;
   margin: 0.5em 0 0.5em 1.5em;
   padding: 1px 3px; }
-  .textarea#string {
+  .textarea#test_string {
     min-height: calc(3em + 6px); }
   .textarea#results {
     background: #eeeeee;
@@ -74,7 +75,7 @@ body {
 #re_area {
   display: flex;
   align-items: center; }
-  #re_area #re {
+  #re_area #regex {
     flex: 1 1 auto;
     margin: 0; }
   #re_area #flags {

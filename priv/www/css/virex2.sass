@@ -1,0 +1,85 @@
+body
+  background-color: #edf
+
+.main
+  display: flex
+  flex-direction: column
+  align-items: stretch
+
+.line
+  flex: 1 1 auto
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  justify-content: flex-start
+
+.col
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  margin: 1em 0.5em
+
+.slash
+  display: inline-block
+  margin: 0 0.5em
+  font-size: 125%
+  font-weight: bold
+
+h1
+  font-size: 175%
+  margin: 0.25em 0
+  text-align: center
+
+h2
+  font-size: 125%
+  margin: 0.25em 0 0 0
+  text-align: center
+
+label
+  font-size: 85%
+  display: block
+
+#test_string
+  flex: 1 1 auto
+
+#regex
+  flex: 0 1 20em
+
+#update_regex
+
+#match_result
+  flex: 1 1 auto
+  background: #eee
+  border: 1px inset gray
+
+#match_groups
+  
+
+
+
+#tips
+  align-items: flex-start 
+  justify-content: space-around
+
+  ul
+    list-style-type: none
+    display: table
+    width: 30%
+    padding: 0
+
+    li
+      display: table-row
+
+      .term
+        display: table-cell
+        font-size: 75%
+        font-family: 'Menlo', 'Consolas', 'Monaco', monospace
+        padding: 0.25em 0.5em 0.5em 0em
+        white-space: nowrap
+
+      .def
+        display: table-cell
+        color: #667
+        font-size: 85%
+        font-style: italic
+
