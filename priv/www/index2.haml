@@ -7,21 +7,23 @@
 
   %body
     .main
-      %h1 a Vim Regular Expressions playground
+      .logo
+        %h1 /&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x
+        %h2 a tool for exploring regular expressions in vi
 
       .col
         %label(for="test_string") Your test string:
-        %textarea#test_string(placeholder="Your test string" data-behavior="submit-regex-query" maxlength="500")
+        %textarea#test_string(placeholder="Your test string" maxlength="500")
 
       .col
         %label(for="regex") Your regular expression:
-        .line
+        .line#slashes
           .slash /
-          %input#regex(type="text" placeholder="Your regular expression" data-behavior="submit-regex-query" maxlength="80")
+          %input#regex(type="text" placeholder="Your regular expression" maxlength="80")
           .slash /g
 
       .line
-        %button#update_regex Update match results
+        %button#update_regex< Update match results
 
       .col
         %label(for="match_result") Match result:
@@ -31,7 +33,8 @@
         %label(for="match_groups") Match groups:
         .match#match_groups
 
-      %h2 Vim Regex Quick Reference (in default/magic mode)
+      .line
+        %h2 Vim Regex Quick Reference (in default/magic mode)
 
       .line#tips 
         %ul
@@ -142,7 +145,7 @@
 
 
 
-      .line#footer
+      .col.footer
         %p
           For detailed documentation on vim's regex, check out <a href="http://vimregex.com/">vimregex.com</a>, the <a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html">vim docs</a>, and the <a href="http://vim.wikia.com/wiki/Special:Search?search=regular+expressions&fulltext=Search&ns0=1&ns14=1">vim tips wiki</a>.
         %p

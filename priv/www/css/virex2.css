@@ -1,23 +1,31 @@
 body {
-  background-color: #eeddff; }
+  background-color: white; }
 
 .main {
   display: flex;
   flex-direction: column;
-  align-items: stretch; }
+  align-items: stretch;
+  width: 100%;
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto; }
+  .main > * {
+    zborder: 1px solid red; }
 
 .line {
-  flex: 1 1 auto;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start; }
+  justify-content: center;
+  zborder: 1px solid cyan;
+  margin: 1em 0 0 0; }
+  .line#slashes {
+    justify-content: flex-start;
+    margin-top: 0; }
 
 .col {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 1em 0.5em; }
+  margin: 1em 0 0 0; }
 
 .slash {
   display: inline-block;
@@ -25,49 +33,82 @@ body {
   font-size: 125%;
   font-weight: bold; }
 
-h1 {
-  font-size: 175%;
-  margin: 0.25em 0;
-  text-align: center; }
+.logo {
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #aa99aa; }
+  .logo h1 {
+    font: 150% bold "Futura", "sans-serif";
+    color: #aa0000;
+    text-align: center; }
+    .logo h1 #rex {
+      zfont-size: 90%;
+      color: #0000aa; }
+  .logo h2 {
+    text-align: center; }
 
 h2 {
-  font-size: 125%;
+  font-size: 100%;
   margin: 0.25em 0 0 0;
   text-align: center; }
+  @media (max-width: 480px) {
+    h2 {
+      height: 2em; } }
+
+button {
+  display: inline-block;
+  margin: 1em; }
 
 label {
-  font-size: 85%;
-  display: block; }
-
-#test_string {
-  flex: 1 1 auto; }
+  font-size: 75%; }
 
 #regex {
   flex: 0 1 20em; }
 
-#match_result {
-  flex: 1 1 auto;
+.match {
   background: #eeeeee;
-  border: 1px inset gray; }
+  border: 1px inset gray;
+  height: 4em; }
 
 #tips {
   align-items: flex-start;
   justify-content: space-around; }
+  @media (max-width: 480px) {
+    #tips {
+      flex-direction: column;
+      justify-content: center; } }
   #tips ul {
     list-style-type: none;
     display: table;
     width: 30%;
-    padding: 0; }
+    padding: 0;
+    margin: 0; }
+    @media (max-width: 480px) {
+      #tips ul {
+        width: 100%; } }
     #tips ul li {
       display: table-row; }
+      #tips ul li:hover {
+        background: #d8d8d8; }
       #tips ul li .term {
         display: table-cell;
         font-size: 75%;
         font-family: "Menlo", "Consolas", "Monaco", monospace;
-        padding: 0.25em 0.5em 0.5em 0em;
-        white-space: nowrap; }
+        padding: 0.25em;
+        zwhite-space: nowrap; }
+        @media (max-width: 480px) {
+          #tips ul li .term {
+            width: 10em;
+            padding-left: 0.5em; } }
       #tips ul li .def {
         display: table-cell;
         color: #666677;
         font-size: 85%;
-        font-style: italic; }
+        font-style: italic;
+        padding: 0.25em; }
+        @media (max-width: 480px) {
+          #tips ul li .def {
+            padding-right: 0.5em; } }
+
+.footer {
+  text-align: center;
+  font-size: 75%; }

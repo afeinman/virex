@@ -7,16 +7,19 @@
   </head>
   <body>
     <div class='main'>
-      <h1>a Vim Regular Expressions playground</h1>
+      <div class='logo'>
+        <h1>/&thinsp;vi<span id="rex">[RE]</span>&thinsp;/&thinsp;x</h1>
+        <h2>a tool for exploring regular expressions in vi</h2>
+      </div>
       <div class='col'>
         <label for='test_string'>Your test string:</label>
-        <textarea data-behavior='submit-regex-query' id='test_string' maxlength='500' placeholder='Your test string'></textarea>
+        <textarea id='test_string' maxlength='500' placeholder='Your test string'></textarea>
       </div>
       <div class='col'>
         <label for='regex'>Your regular expression:</label>
-        <div class='line'>
+        <div class='line' id='slashes'>
           <div class='slash'>/</div>
-          <input data-behavior='submit-regex-query' id='regex' maxlength='80' placeholder='Your regular expression' type='text'>
+          <input id='regex' maxlength='80' placeholder='Your regular expression' type='text'>
           <div class='slash'>/g</div>
         </div>
       </div>
@@ -31,7 +34,9 @@
         <label for='match_groups'>Match groups:</label>
         <div class='match' id='match_groups'></div>
       </div>
-      <h2>Vim Regex Quick Reference (in default/magic mode)</h2>
+      <div class='line'>
+        <h2>Vim Regex Quick Reference (in default/magic mode)</h2>
+      </div>
       <div class='line' id='tips'>
         <ul>
           <li>
@@ -172,7 +177,7 @@
           </li>
         </ul>
       </div>
-      <div class='line' id='footer'>
+      <div class='col footer'>
         <p>
           For detailed documentation on vim's regex, check out <a href="http://vimregex.com/">vimregex.com</a>, the <a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html">vim docs</a>, and the <a href="http://vim.wikia.com/wiki/Special:Search?search=regular+expressions&fulltext=Search&ns0=1&ns14=1">vim tips wiki</a>.
         </p>

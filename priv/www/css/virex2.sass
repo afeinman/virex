@@ -1,23 +1,34 @@
+$narrow: 480px
+$mspace: 'Menlo', 'Consolas', 'Monaco', monospace
+
 body
-  background-color: #edf
+  background-color: #fff
 
 .main
   display: flex
   flex-direction: column
   align-items: stretch
+  width: 100%
+  max-width: 40em
+  margin-left: auto
+  margin-right: auto
+  > *
+    zborder: 1px solid red
 
 .line
-  flex: 1 1 auto
   display: flex
-  flex-direction: row
-  align-items: flex-start
-  justify-content: flex-start
+  justify-content: center
+  zborder: 1px solid cyan
+  margin: 1em 0 0 0
+  &#slashes
+    justify-content: flex-start
+    margin-top: 0
 
 .col
   display: flex
   flex-direction: column
   align-items: stretch
-  margin: 1em 0.5em
+  margin: 1em 0 0 0
 
 .slash
   display: inline-block
@@ -25,60 +36,85 @@ body
   font-size: 125%
   font-weight: bold
 
-h1
-  font-size: 175%
-  margin: 0.25em 0
-  text-align: center
+.logo
+  padding-bottom: 0.25em
+  border-bottom: 1px solid #a9a
+  h1
+    font: 150% bold "Futura","sans-serif"
+    color: #A00
+    text-align: center
+    #rex
+      zfont-size: 90%
+      color: #00A
+  h2
+    text-align: center
 
 h2
-  font-size: 125%
+  font-size: 100%
   margin: 0.25em 0 0 0
   text-align: center
+  @media (max-width: $narrow)
+    height: 2em
+
+button
+  display: inline-block
+  margin: 1em
 
 label
-  font-size: 85%
-  display: block
+  font-size: 75%
 
-#test_string
-  flex: 1 1 auto
 
 #regex
   flex: 0 1 20em
 
-#update_regex
 
-#match_result
-  flex: 1 1 auto
+.match
   background: #eee
   border: 1px inset gray
-
-#match_groups
+  height: 4em
   
 
 
 #tips
   align-items: flex-start 
   justify-content: space-around
+  @media (max-width: $narrow)
+    flex-direction: column
+    justify-content: center
 
   ul
     list-style-type: none
     display: table
     width: 30%
     padding: 0
+    margin: 0
+    @media (max-width: $narrow)
+      width: 100%
 
     li
       display: table-row
+      &:hover
+        background: #d8d8d8
 
       .term
         display: table-cell
         font-size: 75%
-        font-family: 'Menlo', 'Consolas', 'Monaco', monospace
-        padding: 0.25em 0.5em 0.5em 0em
-        white-space: nowrap
+        font-family: $mspace 
+        padding: 0.25em
+        zwhite-space: nowrap
+        @media (max-width: $narrow)
+          width: 10em
+          padding-left: 0.5em
 
       .def
         display: table-cell
         color: #667
         font-size: 85%
         font-style: italic
+        padding: 0.25em
+        @media (max-width: $narrow)
+          padding-right: 0.5em
 
+.footer
+  text-align: center
+  font-size: 75%
